@@ -45,6 +45,7 @@
 }
 
 - (void) getWeather:(id)sender {
+    // Show the spinning wheel (UIActivityIndicator) in the status bar whilst we're getting the data.
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     // URL for dataWithContentsOfURL.
@@ -98,10 +99,13 @@
 - (void) fetchedData:(NSData *)responseData {    
     
     NSError *error;
+    // Get the JSON object from Yahoo.
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
     NSDictionary* resultset = [json objectForKey:@"ResultSet"];
     NSArray* results = [resultset objectForKey:@"Results"];
     NSDictionary* rawPlaceData = [results objectAtIndex:0];
+    
+    // When we've got the data, remove the UIActivityIndicator from the status bar.
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
     // URL for dataWithContentsOfURL.
