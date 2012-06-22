@@ -1,0 +1,317 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4EA0AD571593FAD1005FF81F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA0AD561593FAD1005FF81F /* UIKit.framework */; };
+		4EA0AD591593FAD1005FF81F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA0AD581593FAD1005FF81F /* Foundation.framework */; };
+		4EA0AD5B1593FAD1005FF81F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA0AD5A1593FAD1005FF81F /* CoreGraphics.framework */; };
+		4EA0AD611593FAD1005FF81F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EA0AD5F1593FAD1005FF81F /* InfoPlist.strings */; };
+		4EA0AD631593FAD1005FF81F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA0AD621593FAD1005FF81F /* main.m */; };
+		4EA0AD671593FAD1005FF81F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA0AD661593FAD1005FF81F /* AppDelegate.m */; };
+		4EA0AD6A1593FAD1005FF81F /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EA0AD681593FAD1005FF81F /* MainStoryboard_iPhone.storyboard */; };
+		4EA0AD6D1593FAD1005FF81F /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EA0AD6B1593FAD1005FF81F /* MainStoryboard_iPad.storyboard */; };
+		4EA0AD701593FAD1005FF81F /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA0AD6F1593FAD1005FF81F /* FirstViewController.m */; };
+		4EA0AD721593FAD1005FF81F /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EA0AD711593FAD1005FF81F /* first.png */; };
+		4EA0AD741593FAD1005FF81F /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EA0AD731593FAD1005FF81F /* first@2x.png */; };
+		4EA0AD771593FAD1005FF81F /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA0AD761593FAD1005FF81F /* SecondViewController.m */; };
+		4EA0AD791593FAD1005FF81F /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EA0AD781593FAD1005FF81F /* second.png */; };
+		4EA0AD7B1593FAD1005FF81F /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EA0AD7A1593FAD1005FF81F /* second@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4EA0AD521593FAD1005FF81F /* RedditWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EA0AD561593FAD1005FF81F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4EA0AD581593FAD1005FF81F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4EA0AD5A1593FAD1005FF81F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4EA0AD5E1593FAD1005FF81F /* RedditWeather-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RedditWeather-Info.plist"; sourceTree = "<group>"; };
+		4EA0AD601593FAD1005FF81F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4EA0AD621593FAD1005FF81F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4EA0AD641593FAD1005FF81F /* RedditWeather-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RedditWeather-Prefix.pch"; sourceTree = "<group>"; };
+		4EA0AD651593FAD1005FF81F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4EA0AD661593FAD1005FF81F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4EA0AD691593FAD1005FF81F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		4EA0AD6C1593FAD1005FF81F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		4EA0AD6E1593FAD1005FF81F /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		4EA0AD6F1593FAD1005FF81F /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		4EA0AD711593FAD1005FF81F /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		4EA0AD731593FAD1005FF81F /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		4EA0AD751593FAD1005FF81F /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		4EA0AD761593FAD1005FF81F /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		4EA0AD781593FAD1005FF81F /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		4EA0AD7A1593FAD1005FF81F /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4EA0AD4F1593FAD1005FF81F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EA0AD571593FAD1005FF81F /* UIKit.framework in Frameworks */,
+				4EA0AD591593FAD1005FF81F /* Foundation.framework in Frameworks */,
+				4EA0AD5B1593FAD1005FF81F /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4EA0AD471593FAD1005FF81F = {
+			isa = PBXGroup;
+			children = (
+				4EA0AD5C1593FAD1005FF81F /* RedditWeather */,
+				4EA0AD551593FAD1005FF81F /* Frameworks */,
+				4EA0AD531593FAD1005FF81F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4EA0AD531593FAD1005FF81F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4EA0AD521593FAD1005FF81F /* RedditWeather.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4EA0AD551593FAD1005FF81F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4EA0AD561593FAD1005FF81F /* UIKit.framework */,
+				4EA0AD581593FAD1005FF81F /* Foundation.framework */,
+				4EA0AD5A1593FAD1005FF81F /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4EA0AD5C1593FAD1005FF81F /* RedditWeather */ = {
+			isa = PBXGroup;
+			children = (
+				4EA0AD651593FAD1005FF81F /* AppDelegate.h */,
+				4EA0AD661593FAD1005FF81F /* AppDelegate.m */,
+				4EA0AD681593FAD1005FF81F /* MainStoryboard_iPhone.storyboard */,
+				4EA0AD6B1593FAD1005FF81F /* MainStoryboard_iPad.storyboard */,
+				4EA0AD6E1593FAD1005FF81F /* FirstViewController.h */,
+				4EA0AD6F1593FAD1005FF81F /* FirstViewController.m */,
+				4EA0AD711593FAD1005FF81F /* first.png */,
+				4EA0AD731593FAD1005FF81F /* first@2x.png */,
+				4EA0AD751593FAD1005FF81F /* SecondViewController.h */,
+				4EA0AD761593FAD1005FF81F /* SecondViewController.m */,
+				4EA0AD781593FAD1005FF81F /* second.png */,
+				4EA0AD7A1593FAD1005FF81F /* second@2x.png */,
+				4EA0AD5D1593FAD1005FF81F /* Supporting Files */,
+			);
+			path = RedditWeather;
+			sourceTree = "<group>";
+		};
+		4EA0AD5D1593FAD1005FF81F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4EA0AD5E1593FAD1005FF81F /* RedditWeather-Info.plist */,
+				4EA0AD5F1593FAD1005FF81F /* InfoPlist.strings */,
+				4EA0AD621593FAD1005FF81F /* main.m */,
+				4EA0AD641593FAD1005FF81F /* RedditWeather-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4EA0AD511593FAD1005FF81F /* RedditWeather */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4EA0AD7E1593FAD1005FF81F /* Build configuration list for PBXNativeTarget "RedditWeather" */;
+			buildPhases = (
+				4EA0AD4E1593FAD1005FF81F /* Sources */,
+				4EA0AD4F1593FAD1005FF81F /* Frameworks */,
+				4EA0AD501593FAD1005FF81F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RedditWeather;
+			productName = RedditWeather;
+			productReference = 4EA0AD521593FAD1005FF81F /* RedditWeather.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4EA0AD491593FAD1005FF81F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 4EA0AD4C1593FAD1005FF81F /* Build configuration list for PBXProject "RedditWeather" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4EA0AD471593FAD1005FF81F;
+			productRefGroup = 4EA0AD531593FAD1005FF81F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4EA0AD511593FAD1005FF81F /* RedditWeather */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4EA0AD501593FAD1005FF81F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EA0AD611593FAD1005FF81F /* InfoPlist.strings in Resources */,
+				4EA0AD6A1593FAD1005FF81F /* MainStoryboard_iPhone.storyboard in Resources */,
+				4EA0AD6D1593FAD1005FF81F /* MainStoryboard_iPad.storyboard in Resources */,
+				4EA0AD721593FAD1005FF81F /* first.png in Resources */,
+				4EA0AD741593FAD1005FF81F /* first@2x.png in Resources */,
+				4EA0AD791593FAD1005FF81F /* second.png in Resources */,
+				4EA0AD7B1593FAD1005FF81F /* second@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4EA0AD4E1593FAD1005FF81F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EA0AD631593FAD1005FF81F /* main.m in Sources */,
+				4EA0AD671593FAD1005FF81F /* AppDelegate.m in Sources */,
+				4EA0AD701593FAD1005FF81F /* FirstViewController.m in Sources */,
+				4EA0AD771593FAD1005FF81F /* SecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4EA0AD5F1593FAD1005FF81F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EA0AD601593FAD1005FF81F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4EA0AD681593FAD1005FF81F /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EA0AD691593FAD1005FF81F /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		4EA0AD6B1593FAD1005FF81F /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EA0AD6C1593FAD1005FF81F /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4EA0AD7C1593FAD1005FF81F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4EA0AD7D1593FAD1005FF81F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4EA0AD7F1593FAD1005FF81F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RedditWeather/RedditWeather-Prefix.pch";
+				INFOPLIST_FILE = "RedditWeather/RedditWeather-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4EA0AD801593FAD1005FF81F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RedditWeather/RedditWeather-Prefix.pch";
+				INFOPLIST_FILE = "RedditWeather/RedditWeather-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4EA0AD4C1593FAD1005FF81F /* Build configuration list for PBXProject "RedditWeather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4EA0AD7C1593FAD1005FF81F /* Debug */,
+				4EA0AD7D1593FAD1005FF81F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4EA0AD7E1593FAD1005FF81F /* Build configuration list for PBXNativeTarget "RedditWeather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4EA0AD7F1593FAD1005FF81F /* Debug */,
+				4EA0AD801593FAD1005FF81F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4EA0AD491593FAD1005FF81F /* Project object */;
+}
