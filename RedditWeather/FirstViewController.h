@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface FirstViewController : UIViewController <CLLocationManagerDelegate> {
+@interface FirstViewController : UIViewController <CLLocationManagerDelegate> 
+{
     CLGeocoder *_geocoder; //Reverse geocoder, gives us information from coordinates.
-    
     __weak UILabel *_townLabel;
     __weak UILabel *_textLabel;
     __weak UILabel *_temperatureLabel;
@@ -27,7 +27,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
-- (IBAction) getCoordinates:(id)sender;  //Method we want to be called when update button is tapped.
 - (IBAction)getWeather:(id)sender; //Method we want to be called when get weather button is tapped.
 
 @end

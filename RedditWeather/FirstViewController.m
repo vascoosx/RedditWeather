@@ -29,40 +29,26 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+    //iPhone set to only display in Portrait, iPad will autorotate
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+        return (interfaceOrientation == UIInterfaceOrientationPortrait);
     } else {
         return YES;
     }
 }
 
-- (void) getCoordinates:(id)sender {
+- (void)getWeather:(id)sender {
     
     // Create the locationManager, set its delegate to self and start it updating.
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
+    // Get location and then call didUpdateToLocation to update location and start pulling weather data
     [locationManager startUpdatingLocation];
 }
 
-- (void) getWeather:(id)sender {
-    // Show the spinning wheel (UIActivityIndicator) in the status bar whilst we're getting the data.
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    
-    // URL for dataWithContentsOfURL.
-    NSString *urlString = [NSString stringWithFormat:@"http://where.yahooapis.com/geocode?location=%f+%f&flags=J&gflags=r&appid=83Q_GxzV34GmB4fZFHAlkt1NOa6YN3.BJ2iyaYv.LeW8uWaUVc0jLJYEISsQdUUVIhoHGw--", latitude, longitude];
-    
-    // Get weather data in background queue so UI doesn't lock up.
-    dispatch_async(kBgQueue, ^{
-    NSData *data = [NSData dataWithContentsOfURL: [NSURL URLWithString:urlString]];
-    [self performSelectorOnMainThread:@selector(fetchedData:)
-                           withObject:data waitUntilDone:YES];
-    });
-    
-}
-
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
-    // Called when new location data, such as better accuracy for a location or if the device moves.
     
+    // Called when new location data, such as better accuracy for a location or if the device moves.
     [locationManager stopUpdatingLocation];
     self.currentLocation = newLocation;
     latitude = currentLocation.coordinate.latitude;
@@ -76,6 +62,18 @@
         }    
     }];
     
+    // Show the spinning wheel (UIActivityIndicator) in the status bar whilst we're getting the data.
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+    // URL for dataWithContentsOfURL.
+    NSString *urlString = [NSString stringWithFormat:@"http://where.yahooapis.com/geocode?location=%f+%f&flags=J&gflags=r&appid=83Q_GxzV34GmB4fZFHAlkt1NOa6YN3.BJ2iyaYv.LeW8uWaUVc0jLJYEISsQdUUVIhoHGw--", latitude, longitude];
+    
+    // Get weather data in background queue so UI doesn't lock up.
+    dispatch_async(kBgQueue, ^{
+        NSData *data = [NSData dataWithContentsOfURL: [NSURL URLWithString:urlString]];
+        [self performSelectorOnMainThread:@selector(fetchedData:)
+                               withObject:data waitUntilDone:YES];
+    });
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
@@ -96,7 +94,7 @@
     }
 }
 
-- (void) fetchedData:(NSData *)responseData {    
+- (void)fetchedData:(NSData *)responseData {    
     
     NSError *error;
     // Get the JSON object from Yahoo.
@@ -116,7 +114,7 @@
                            withObject:data waitUntilDone:YES];
 }
 
-- (void) fetchedWeather:(NSData *)responseData {
+- (void)fetchedWeather:(NSData *)responseData {
     NSError *error;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
     NSDictionary *conditions = [json objectForKey:@"condition"];

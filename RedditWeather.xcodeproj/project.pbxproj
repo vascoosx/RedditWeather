@@ -308,19 +308,15 @@
 		4EA0AD5C1593FAD1005FF81F /* RedditWeather */ = {
 			isa = PBXGroup;
 			children = (
-				4EFD4487159457AB00B2B059 /* Resources */,
 				4EA0AD651593FAD1005FF81F /* AppDelegate.h */,
 				4EA0AD661593FAD1005FF81F /* AppDelegate.m */,
 				4EA0AD681593FAD1005FF81F /* MainStoryboard_iPhone.storyboard */,
 				4EA0AD6B1593FAD1005FF81F /* MainStoryboard_iPad.storyboard */,
 				4EA0AD6E1593FAD1005FF81F /* FirstViewController.h */,
 				4EA0AD6F1593FAD1005FF81F /* FirstViewController.m */,
-				4EA0AD711593FAD1005FF81F /* first.png */,
-				4EA0AD731593FAD1005FF81F /* first@2x.png */,
 				4EA0AD751593FAD1005FF81F /* SecondViewController.h */,
 				4EA0AD761593FAD1005FF81F /* SecondViewController.m */,
-				4EA0AD781593FAD1005FF81F /* second.png */,
-				4EA0AD7A1593FAD1005FF81F /* second@2x.png */,
+				4EFD4487159457AB00B2B059 /* Resources */,
 				4EA0AD5D1593FAD1005FF81F /* Supporting Files */,
 			);
 			path = RedditWeather;
@@ -340,6 +336,7 @@
 		4EFD4487159457AB00B2B059 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7E1BCEEF1594EAF2001C2E19 /* Images */,
 				4EFD4489159457B800B2B059 /* Shiny */,
 			);
 			name = Resources;
@@ -457,6 +454,17 @@
 				4EFD44F4159457B800B2B059 /* WEATHERALERT.png */,
 			);
 			path = Shiny;
+			sourceTree = "<group>";
+		};
+		7E1BCEEF1594EAF2001C2E19 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				4EA0AD711593FAD1005FF81F /* first.png */,
+				4EA0AD731593FAD1005FF81F /* first@2x.png */,
+				4EA0AD781593FAD1005FF81F /* second.png */,
+				4EA0AD7A1593FAD1005FF81F /* second@2x.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

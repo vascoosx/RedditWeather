@@ -28,8 +28,9 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+    //iPhone set to only display in Portrait, iPad will autorotate
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+        return (interfaceOrientation == UIInterfaceOrientationPortrait);
     } else {
         return YES;
     }
