@@ -13,7 +13,7 @@
 @end
 
 @implementation FirstViewController
-@synthesize locationManager, currentLocation, townLabel, longitude, latitude, textLabel, temperatureLabel;
+@synthesize locationManager, currentLocation, townLabel, longitude, latitude, textLabel, temperatureLabel, imageView;
 
 - (void)viewDidLoad
 {
@@ -118,6 +118,7 @@
     NSDictionary *conditions = [json objectForKey:@"condition"];
     textLabel.text = [conditions objectForKey:@"text"];
     temperatureLabel.text = [NSString stringWithFormat: @"%iºC", [[conditions objectForKey:@"temperature"] intValue]];
+    imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@", [conditions objectForKey:@"code"]] ofType:@"png"]];
     
 }
 

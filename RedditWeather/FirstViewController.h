@@ -15,6 +15,7 @@
     __weak UILabel *_townLabel;
     __weak UILabel *_textLabel;
     __weak UILabel *_temperatureLabel;
+    __weak UIImageView *__imageView;
 }
 
 @property (strong, nonatomic) CLLocationManager *locationManager; // The location manager code.
@@ -24,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *townLabel;
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 - (IBAction) getCoordinates:(id)sender;  //Method we want to be called when update button is tapped.
 - (IBAction)getWeather:(id)sender; //Method we want to be called when get weather button is tapped.
