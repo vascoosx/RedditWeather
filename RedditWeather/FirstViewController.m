@@ -18,6 +18,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIColor* bgColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ipad-BG-pattern.png"]];
+    [self.view setBackgroundColor:bgColor];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

@@ -15,7 +15,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    return YES;
+    [[UIApplication sharedApplication] 
+     setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
+
+    
+    UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar.png"];
+    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
+    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar-active.png"]];
+     return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

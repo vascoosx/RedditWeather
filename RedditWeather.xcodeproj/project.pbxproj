@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E1B46011594FF9300FA9D1B /* ipad-BG-pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E1B45FF1594FF9300FA9D1B /* ipad-BG-pattern.png */; };
+		4E1B46021594FF9300FA9D1B /* ipad-BG-pattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E1B46001594FF9300FA9D1B /* ipad-BG-pattern@2x.png */; };
+		4E3635F91594FC2E002B6BD8 /* 25-weather.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E3635F71594FC2E002B6BD8 /* 25-weather.png */; };
+		4E3635FA1594FC2E002B6BD8 /* 25-weather@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E3635F81594FC2E002B6BD8 /* 25-weather@2x.png */; };
+		4E3635FE1594FCBA002B6BD8 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E3635FC1594FCBA002B6BD8 /* button.png */; };
+		4E3635FF1594FCBA002B6BD8 /* button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E3635FD1594FCBA002B6BD8 /* button@2x.png */; };
+		4E3636081594FE12002B6BD8 /* tabbar-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E3636041594FE12002B6BD8 /* tabbar-active.png */; };
+		4E3636091594FE12002B6BD8 /* tabbar-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E3636051594FE12002B6BD8 /* tabbar-active@2x.png */; };
+		4E36360A1594FE12002B6BD8 /* tabbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E3636061594FE12002B6BD8 /* tabbar.png */; };
+		4E36360B1594FE12002B6BD8 /* tabbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E3636071594FE12002B6BD8 /* tabbar@2x.png */; };
 		4EA0AD571593FAD1005FF81F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA0AD561593FAD1005FF81F /* UIKit.framework */; };
 		4EA0AD591593FAD1005FF81F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA0AD581593FAD1005FF81F /* Foundation.framework */; };
 		4EA0AD5B1593FAD1005FF81F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA0AD5A1593FAD1005FF81F /* CoreGraphics.framework */; };
@@ -132,6 +142,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E1B45FF1594FF9300FA9D1B /* ipad-BG-pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-BG-pattern.png"; sourceTree = "<group>"; };
+		4E1B46001594FF9300FA9D1B /* ipad-BG-pattern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-BG-pattern@2x.png"; sourceTree = "<group>"; };
+		4E3635F71594FC2E002B6BD8 /* 25-weather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "25-weather.png"; sourceTree = "<group>"; };
+		4E3635F81594FC2E002B6BD8 /* 25-weather@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "25-weather@2x.png"; sourceTree = "<group>"; };
+		4E3635FC1594FCBA002B6BD8 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		4E3635FD1594FCBA002B6BD8 /* button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button@2x.png"; sourceTree = "<group>"; };
+		4E3636041594FE12002B6BD8 /* tabbar-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-active.png"; sourceTree = "<group>"; };
+		4E3636051594FE12002B6BD8 /* tabbar-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-active@2x.png"; sourceTree = "<group>"; };
+		4E3636061594FE12002B6BD8 /* tabbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar.png; sourceTree = "<group>"; };
+		4E3636071594FE12002B6BD8 /* tabbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar@2x.png"; sourceTree = "<group>"; };
 		4EA0AD521593FAD1005FF81F /* RedditWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EA0AD561593FAD1005FF81F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4EA0AD581593FAD1005FF81F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -459,6 +479,16 @@
 		7E1BCEEF1594EAF2001C2E19 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4E1B45FF1594FF9300FA9D1B /* ipad-BG-pattern.png */,
+				4E1B46001594FF9300FA9D1B /* ipad-BG-pattern@2x.png */,
+				4E3636041594FE12002B6BD8 /* tabbar-active.png */,
+				4E3636051594FE12002B6BD8 /* tabbar-active@2x.png */,
+				4E3636061594FE12002B6BD8 /* tabbar.png */,
+				4E3636071594FE12002B6BD8 /* tabbar@2x.png */,
+				4E3635FC1594FCBA002B6BD8 /* button.png */,
+				4E3635FD1594FCBA002B6BD8 /* button@2x.png */,
+				4E3635F71594FC2E002B6BD8 /* 25-weather.png */,
+				4E3635F81594FC2E002B6BD8 /* 25-weather@2x.png */,
 				4EA0AD711593FAD1005FF81F /* first.png */,
 				4EA0AD731593FAD1005FF81F /* first@2x.png */,
 				4EA0AD781593FAD1005FF81F /* second.png */,
@@ -631,6 +661,16 @@
 				4EFD455D159457B800B2B059 /* NOCONNECTION.png in Resources */,
 				4EFD455E159457B800B2B059 /* permission.txt in Resources */,
 				4EFD455F159457B800B2B059 /* WEATHERALERT.png in Resources */,
+				4E3635F91594FC2E002B6BD8 /* 25-weather.png in Resources */,
+				4E3635FA1594FC2E002B6BD8 /* 25-weather@2x.png in Resources */,
+				4E3635FE1594FCBA002B6BD8 /* button.png in Resources */,
+				4E3635FF1594FCBA002B6BD8 /* button@2x.png in Resources */,
+				4E3636081594FE12002B6BD8 /* tabbar-active.png in Resources */,
+				4E3636091594FE12002B6BD8 /* tabbar-active@2x.png in Resources */,
+				4E36360A1594FE12002B6BD8 /* tabbar.png in Resources */,
+				4E36360B1594FE12002B6BD8 /* tabbar@2x.png in Resources */,
+				4E1B46011594FF9300FA9D1B /* ipad-BG-pattern.png in Resources */,
+				4E1B46021594FF9300FA9D1B /* ipad-BG-pattern@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
