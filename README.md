@@ -1,8 +1,8 @@
 Welcome to RedditWeather
 ========================
 
-An iOS based weather app for r/learnprogramming
------------------------------------------------
+###An iOS based weather app for r/learnprogramming
+
 
 This will be a universal app (both iPhone and iPad) in iOS 5
 
