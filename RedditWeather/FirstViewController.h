@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface FirstViewController : UIViewController
+@interface FirstViewController : UIViewController <CLLocationManagerDelegate> {
+    CLGeocoder *_geocoder; //Reverse geocoder, gives us information from coordinates.
+    
+    __weak UILabel *_townLabel;
+}
+
+@property (strong, nonatomic) CLLocationManager *locationManager; // The location manager code.
+@property (strong, nonatomic) CLLocation *currentLocation; // The location data.
+@property (weak, nonatomic) IBOutlet UILabel *townLabel;
+
+- (IBAction) getCoordinates:(id)sender;  //Method we want to be called when update button is tapped.
 
 @end

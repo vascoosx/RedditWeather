@@ -21,6 +21,7 @@
 		4EA0AD771593FAD1005FF81F /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA0AD761593FAD1005FF81F /* SecondViewController.m */; };
 		4EA0AD791593FAD1005FF81F /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EA0AD781593FAD1005FF81F /* second.png */; };
 		4EA0AD7B1593FAD1005FF81F /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EA0AD7A1593FAD1005FF81F /* second@2x.png */; };
+		4EA0AD821593FD93005FF81F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA0AD811593FD93005FF81F /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		4EA0AD761593FAD1005FF81F /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		4EA0AD781593FAD1005FF81F /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		4EA0AD7A1593FAD1005FF81F /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		4EA0AD811593FD93005FF81F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EA0AD821593FD93005FF81F /* CoreLocation.framework in Frameworks */,
 				4EA0AD571593FAD1005FF81F /* UIKit.framework in Frameworks */,
 				4EA0AD591593FAD1005FF81F /* Foundation.framework in Frameworks */,
 				4EA0AD5B1593FAD1005FF81F /* CoreGraphics.framework in Frameworks */,
@@ -63,6 +66,7 @@
 		4EA0AD471593FAD1005FF81F = {
 			isa = PBXGroup;
 			children = (
+				4EA0AD811593FD93005FF81F /* CoreLocation.framework */,
 				4EA0AD5C1593FAD1005FF81F /* RedditWeather */,
 				4EA0AD551593FAD1005FF81F /* Frameworks */,
 				4EA0AD531593FAD1005FF81F /* Products */,
