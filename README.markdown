@@ -8,4 +8,4 @@
 
 ### For more information, [visit the Wiki](https://github.com/mathieuhendey/RedditWeather/wiki).
 
-![Screenshot](http://i.imgur.com/EsmuW.png)
+![Screenshot](http://i.imgur.com/XSQYj.png)
