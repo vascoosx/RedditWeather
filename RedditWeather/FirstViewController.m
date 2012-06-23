@@ -13,12 +13,28 @@
 @end
 
 @implementation FirstViewController
-@synthesize locationManager, currentLocation, townLabel, longitude, latitude, textLabel, temperatureLabel, imageView, temperatureSetting;
+@synthesize locationManager, currentLocation, townLabel, longitude, latitude, conditions, temperatureSetting,textLabel, temperatureLabel, imageView;
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    //Gets user setting choices for Fahrenheit or Celsius
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    temperatureSetting = [[preferences valueForKey:@"temperature setting"]intValue];
+    //Gets the current value of temperature from the JSON data
+    NSInteger temp = [[conditions objectForKey:@"temperature"]intValue];
+    //Checks the user setting to display either Fahrenheit or Celsius
+    if (temperatureSetting == 0) {
+        temp = (temp * 1.8) + 32;
+        temperatureLabel.text = [NSString stringWithFormat:@"%i°F", temp];
+    } else {
+        temperatureLabel.text = [NSString stringWithFormat: @"%iºC", temp];
+    }
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //Sets background color for app
+    //Sets background color for view controller
     UIColor* bgColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ipad-BG-pattern.png"]];
     [self.view setBackgroundColor:bgColor];
 }
@@ -46,8 +62,6 @@
     locationManager.delegate = self;
     // Get location and then call didUpdateToLocation to update location and start pulling weather data
     [locationManager startUpdatingLocation];
-    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
-    temperatureSetting = [[preferences valueForKey:@"temperature setting"]intValue];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
@@ -121,9 +135,11 @@
 - (void)fetchedWeather:(NSData *)responseData {
     NSError *error;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
-    NSDictionary *conditions = [json objectForKey:@"condition"];
+    conditions = [json objectForKey:@"condition"];
     textLabel.text = [conditions objectForKey:@"text"];
+    //Gets current temperature for JSON data
     NSInteger temp = [[conditions objectForKey:@"temperature"]intValue];
+    //Checks the user setting to display either Fahrenheit or Celsius
     if (temperatureSetting == 0) {
         temp = (temp * 1.8) + 32;
         temperatureLabel.text = [NSString stringWithFormat:@"%i°F", temp];

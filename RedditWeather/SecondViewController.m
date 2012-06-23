@@ -14,12 +14,12 @@
 
 @implementation SecondViewController
 
-@synthesize temperatureControl;
-@synthesize selectedSegment;
+@synthesize temperatureControl, selectedSegment;
 
 - (IBAction)temperatureSelection:(UISegmentedControl *)sender {
+    //Instance of user defaults. Used to save settings
     NSUserDefaults *temperaturePreference = [NSUserDefaults standardUserDefaults];
-    selectedSegment = [NSUserDefaults standardUserDefaults];
+    //Checks for which segment is pressed and saves the value it holds and remembers which one is pressed
     if ([sender selectedSegmentIndex] == 0) {
         [temperaturePreference setInteger:0 forKey:@"temperature setting"];
         [selectedSegment setInteger:0 forKey:@"segment setting"];
@@ -27,6 +27,7 @@
         [temperaturePreference setInteger:1 forKey:@"temperature setting"];
         [selectedSegment setInteger:1 forKey:@"segment setting"];
     }
+    //Insures the settings are saved
     [temperaturePreference synchronize];
     [selectedSegment synchronize];
 }
@@ -34,8 +35,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //Sets background color for view controller
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"ipad-BG-pattern.png"]]];
+    selectedSegment = [NSUserDefaults standardUserDefaults];
+    //Gets value stored from which segment was pressed 
     NSInteger segmentValue = [[selectedSegment objectForKey:@"segment setting"]intValue];
-    temperatureControl.selectedSegmentIndex = segmentValue;
+    //Sets the last one pressed as the current value highlighted
     [temperatureControl setSelectedSegmentIndex:segmentValue];
 }
 
