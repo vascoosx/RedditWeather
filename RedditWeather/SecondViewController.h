@@ -10,4 +10,7 @@
 
 @interface SecondViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *temperatureControl;
+@property (nonatomic) NSUserDefaults *selectedSegment;
+
 @end

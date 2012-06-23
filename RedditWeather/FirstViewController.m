@@ -18,12 +18,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //Sets background color for app
     UIColor* bgColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ipad-BG-pattern.png"]];
     [self.view setBackgroundColor:bgColor];
-	// Do any additional setup after loading the view, typically from a nib.
-//    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
-//    [preferences setBool:TRUE forKey:@"temperature setting"];
-//    [preferences synchronize];
 }
 
 - (void)viewDidUnload
@@ -50,7 +47,7 @@
     // Get location and then call didUpdateToLocation to update location and start pulling weather data
     [locationManager startUpdatingLocation];
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
-    temperatureSetting = [[preferences valueForKey:@"temperature setting"]boolValue];
+    temperatureSetting = [[preferences valueForKey:@"temperature setting"]intValue];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
@@ -127,7 +124,7 @@
     NSDictionary *conditions = [json objectForKey:@"condition"];
     textLabel.text = [conditions objectForKey:@"text"];
     NSInteger temp = [[conditions objectForKey:@"temperature"]intValue];
-    if (temperatureSetting == TRUE) {
+    if (temperatureSetting == 0) {
         temp = (temp * 1.8) + 32;
         temperatureLabel.text = [NSString stringWithFormat:@"%i°F", temp];
     } else {

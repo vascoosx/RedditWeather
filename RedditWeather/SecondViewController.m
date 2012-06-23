@@ -14,22 +14,34 @@
 
 @implementation SecondViewController
 
-- (IBAction)temperatureValueSetting:(UISwitch *)sender {
-    NSUserDefaults *newPreferences = [NSUserDefaults standardUserDefaults];
-    if (sender.on) {
-        [newPreferences setBool:TRUE forKey:@"temperature setting"];
-    } else {
-        [newPreferences setBool:FALSE forKey:@"temperature setting"];
+@synthesize temperatureControl;
+@synthesize selectedSegment;
+
+- (IBAction)temperatureSelection:(UISegmentedControl *)sender {
+    NSUserDefaults *temperaturePreference = [NSUserDefaults standardUserDefaults];
+    selectedSegment = [NSUserDefaults standardUserDefaults];
+    if ([sender selectedSegmentIndex] == 0) {
+        [temperaturePreference setInteger:0 forKey:@"temperature setting"];
+        [selectedSegment setInteger:0 forKey:@"segment setting"];
+    } else if ([sender selectedSegmentIndex] == 1) {
+        [temperaturePreference setInteger:1 forKey:@"temperature setting"];
+        [selectedSegment setInteger:1 forKey:@"segment setting"];
     }
+    [temperaturePreference synchronize];
+    [selectedSegment synchronize];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSInteger segmentValue = [[selectedSegment objectForKey:@"segment setting"]intValue];
+    temperatureControl.selectedSegmentIndex = segmentValue;
+    [temperatureControl setSelectedSegmentIndex:segmentValue];
 }
 
 - (void)viewDidUnload
 {
+    [self setTemperatureControl:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

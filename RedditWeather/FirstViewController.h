@@ -26,7 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (nonatomic) BOOL temperatureSetting;
+@property (nonatomic) NSInteger temperatureSetting;
 
 - (IBAction)getWeather:(id)sender; //Method we want to be called when get weather button is tapped.
 
