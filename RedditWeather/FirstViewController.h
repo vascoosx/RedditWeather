@@ -8,20 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+@class YahooWeather;
+@interface FirstViewController : UIViewController
 
-@interface FirstViewController : UIViewController <CLLocationManagerDelegate> 
 {
     CLGeocoder *_geocoder; //Reverse geocoder, gives us information from coordinates.
     __weak UILabel *_townLabel;
     __weak UILabel *_textLabel;
     __weak UILabel *_temperatureLabel;
     __weak UIImageView *__imageView;
+    YahooWeather *weather;
 }
 
-@property (strong, nonatomic) CLLocationManager *locationManager; // The location manager code.
-@property (strong, nonatomic) CLLocation *currentLocation; // The location data.
-@property (nonatomic) float longitude;
-@property (nonatomic) float latitude;
+@property (nonatomic,retain) YahooWeather *weather;
 @property (nonatomic) NSDictionary *conditions; 
 @property (nonatomic) NSInteger temperatureSetting;
 @property (weak, nonatomic) IBOutlet UILabel *townLabel;

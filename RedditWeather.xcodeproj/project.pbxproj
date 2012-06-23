@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E11E9CD159671B5001F74B7 /* YahooWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E11E9CC159671B5001F74B7 /* YahooWeather.m */; };
 		4E1B46011594FF9300FA9D1B /* ipad-BG-pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E1B45FF1594FF9300FA9D1B /* ipad-BG-pattern.png */; };
 		4E1B46021594FF9300FA9D1B /* ipad-BG-pattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E1B46001594FF9300FA9D1B /* ipad-BG-pattern@2x.png */; };
 		4E3635F91594FC2E002B6BD8 /* 25-weather.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E3635F71594FC2E002B6BD8 /* 25-weather.png */; };
@@ -142,6 +143,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E11E9CB159671B5001F74B7 /* YahooWeather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YahooWeather.h; sourceTree = "<group>"; };
+		4E11E9CC159671B5001F74B7 /* YahooWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YahooWeather.m; sourceTree = "<group>"; };
 		4E1B45FF1594FF9300FA9D1B /* ipad-BG-pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-BG-pattern.png"; sourceTree = "<group>"; };
 		4E1B46001594FF9300FA9D1B /* ipad-BG-pattern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-BG-pattern@2x.png"; sourceTree = "<group>"; };
 		4E3635F71594FC2E002B6BD8 /* 25-weather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "25-weather.png"; sourceTree = "<group>"; };
@@ -300,7 +303,6 @@
 		4EA0AD471593FAD1005FF81F = {
 			isa = PBXGroup;
 			children = (
-				4EA0AD811593FD93005FF81F /* CoreLocation.framework */,
 				4EA0AD5C1593FAD1005FF81F /* RedditWeather */,
 				4EA0AD551593FAD1005FF81F /* Frameworks */,
 				4EA0AD531593FAD1005FF81F /* Products */,
@@ -318,6 +320,7 @@
 		4EA0AD551593FAD1005FF81F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4EA0AD811593FD93005FF81F /* CoreLocation.framework */,
 				4EA0AD561593FAD1005FF81F /* UIKit.framework */,
 				4EA0AD581593FAD1005FF81F /* Foundation.framework */,
 				4EA0AD5A1593FAD1005FF81F /* CoreGraphics.framework */,
@@ -328,6 +331,8 @@
 		4EA0AD5C1593FAD1005FF81F /* RedditWeather */ = {
 			isa = PBXGroup;
 			children = (
+				4E11E9CB159671B5001F74B7 /* YahooWeather.h */,
+				4E11E9CC159671B5001F74B7 /* YahooWeather.m */,
 				4EA0AD651593FAD1005FF81F /* AppDelegate.h */,
 				4EA0AD661593FAD1005FF81F /* AppDelegate.m */,
 				4EA0AD681593FAD1005FF81F /* MainStoryboard_iPhone.storyboard */,
@@ -524,6 +529,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Mathieu Hendey";
 			};
 			buildConfigurationList = 4EA0AD4C1593FAD1005FF81F /* Build configuration list for PBXProject "RedditWeather" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -685,6 +691,7 @@
 				4EA0AD671593FAD1005FF81F /* AppDelegate.m in Sources */,
 				4EA0AD701593FAD1005FF81F /* FirstViewController.m in Sources */,
 				4EA0AD771593FAD1005FF81F /* SecondViewController.m in Sources */,
+				4E11E9CD159671B5001F74B7 /* YahooWeather.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
