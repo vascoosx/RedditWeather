@@ -13,7 +13,7 @@
 @end
 
 @implementation FirstViewController
-@synthesize locationManager, currentLocation, townLabel, longitude, latitude, textLabel, temperatureLabel, imageView;
+@synthesize locationManager, currentLocation, townLabel, longitude, latitude, textLabel, temperatureLabel, imageView, temperatureSetting;
 
 - (void)viewDidLoad
 {
@@ -21,6 +21,9 @@
     UIColor* bgColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ipad-BG-pattern.png"]];
     [self.view setBackgroundColor:bgColor];
 	// Do any additional setup after loading the view, typically from a nib.
+//    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+//    [preferences setBool:TRUE forKey:@"temperature setting"];
+//    [preferences synchronize];
 }
 
 - (void)viewDidUnload
@@ -46,6 +49,8 @@
     locationManager.delegate = self;
     // Get location and then call didUpdateToLocation to update location and start pulling weather data
     [locationManager startUpdatingLocation];
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    temperatureSetting = [[preferences valueForKey:@"temperature setting"]boolValue];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
@@ -121,7 +126,13 @@
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
     NSDictionary *conditions = [json objectForKey:@"condition"];
     textLabel.text = [conditions objectForKey:@"text"];
-    temperatureLabel.text = [NSString stringWithFormat: @"%iºC", [[conditions objectForKey:@"temperature"] intValue]];
+    NSInteger temp = [[conditions objectForKey:@"temperature"]intValue];
+    if (temperatureSetting == TRUE) {
+        temp = (temp * 1.8) + 32;
+        temperatureLabel.text = [NSString stringWithFormat:@"%i°F", temp];
+    } else {
+        temperatureLabel.text = [NSString stringWithFormat: @"%iºC", temp];
+    }
     imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@", [conditions objectForKey:@"code"]] ofType:@"png"]];
     
 }

@@ -14,10 +14,18 @@
 
 @implementation SecondViewController
 
+- (IBAction)temperatureValueSetting:(UISwitch *)sender {
+    NSUserDefaults *newPreferences = [NSUserDefaults standardUserDefaults];
+    if (sender.on) {
+        [newPreferences setBool:TRUE forKey:@"temperature setting"];
+    } else {
+        [newPreferences setBool:FALSE forKey:@"temperature setting"];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)viewDidUnload
