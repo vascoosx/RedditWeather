@@ -1,4 +1,4 @@
-# A weather app for learning iOS development.
+# A weather app for learning iOS development
 
 ## Currently working features:
 - Update location
