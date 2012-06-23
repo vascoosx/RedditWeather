@@ -7,7 +7,7 @@
 - Set current condition and temperature UILabels to relevant information
 - Set a UIImageView to a relevant image
 
-###Experimental Branch
+###Experimental Branch for Weather class
 
 ### For more information, [visit the Wiki](https://github.com/mathieuhendey/RedditWeather/wiki).
 
