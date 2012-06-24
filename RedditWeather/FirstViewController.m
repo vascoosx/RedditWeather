@@ -75,17 +75,20 @@
     searchEntry = [searchEntry stringByAppendingString:searchBar.text];
     searchEntry = [searchEntry stringByAppendingFormat:@"&flags=J"];
     [searchBar resignFirstResponder];
-    NSLog(@"%@",searchEntry);
+    self.weather.weatherDelegate = self;
+    [weather getWeather:YES :searchEntry];
 }
 
 - (void)getWeather:(id)sender {
     self.weather.weatherDelegate = self;
-    [weather getWeather];
+    [weather getWeather:NO :nil];
 }
+
 
 //Implmentation of the delegated method from the Yahoo Weather Class
 - (void)updateWeatherInfo
 {
+    NSLog(@"updated");
     conditions = [[weather weatherData] objectForKey:@"condition"];
     NSDictionary *location = [[weather weatherData] objectForKey:@"location"];
     townLabel.text = [location objectForKey:@"city"];

@@ -25,6 +25,7 @@ below when they are told to by the Yahoo Weather class
 {
 	CLGeocoder *_geocoder;
     NSDictionary *weatherData;
+    NSString *placeURLString;
 }
 
 //Used to send the message to the Yahoo Weather class delegate
@@ -35,8 +36,9 @@ below when they are told to by the Yahoo Weather class
 @property (nonatomic) float longitude;
 @property (nonatomic) float latitude;
 @property (strong, nonatomic) NSDictionary *weatherData;
+@property (strong, nonatomic) NSString *placeURLString;
 
-- (void) getWeather;
+- (void) getWeather: (BOOL) searchedForLocation: (NSString *) locationSearchedFor;
 
 
 @end

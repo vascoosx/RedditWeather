@@ -11,16 +11,29 @@
 @implementation YahooWeather
 
 @synthesize weatherDelegate = _weatherDelegate;
-@synthesize locationManager, currentLocation, latitude, longitude, weatherData;
+@synthesize locationManager, currentLocation, latitude, longitude, weatherData, placeURLString;
 
-- (void) getWeather {
-    
-    // Create the locationManager, set its delegate to self and start it updating.
+/* Begin searching for wather data. If they searched, searchedForLocation is YES so we don't need to get their current location.
+   If they pressed the Get Weather button, searchedForLocation is NO so we do need to get their current location. */
+- (void) getWeather:(BOOL)searchedForLocation :(NSString *)locationSearchedFor{
+
     self.locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
     
-    // Get location and then call didUpdateToLocation to update location and start pulling weather data
-    [locationManager startUpdatingLocation];    
+    if (searchedForLocation) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+        NSLog(@"searched");
+        placeURLString = locationSearchedFor;
+        dispatch_async(kBgQueue, ^{
+            NSData *data = [NSData dataWithContentsOfURL: [NSURL URLWithString:placeURLString]];
+            [self performSelectorOnMainThread:@selector(fetchedData:)
+                                   withObject:data waitUntilDone:YES];
+        });
+    }
+    else if (searchedForLocation == NO) {
+        [locationManager startUpdatingLocation];
+    }
+       
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
@@ -31,22 +44,15 @@
     latitude = currentLocation.coordinate.latitude;
     longitude = currentLocation.coordinate.longitude;
     
-//    CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
-//    [geoCoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error) {
-//        for (CLPlacemark * placemark in placemarks) {
-//            NSString *townString = [placemark locality];  // Returns the current town.
-//        }    
-//    }];
-    
     // Show the spinning wheel (UIActivityIndicator) in the status bar whilst we're getting the data.
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     // URL for dataWithContentsOfURL.
-    NSString *urlString = [NSString stringWithFormat:@"http://where.yahooapis.com/geocode?location=%f+%f&flags=J&gflags=r&appid=83Q_GxzV34GmB4fZFHAlkt1NOa6YN3.BJ2iyaYv.LeW8uWaUVc0jLJYEISsQdUUVIhoHGw--", latitude, longitude];
+    placeURLString = [NSString stringWithFormat:@"http://where.yahooapis.com/geocode?location=%f+%f&flags=J&gflags=r&appid=83Q_GxzV34GmB4fZFHAlkt1NOa6YN3.BJ2iyaYv.LeW8uWaUVc0jLJYEISsQdUUVIhoHGw--", latitude, longitude];
     
     // Get weather data in background queue so UI doesn't lock up.
     dispatch_async(kBgQueue, ^{
-        NSData *data = [NSData dataWithContentsOfURL: [NSURL URLWithString:urlString]];
+        NSData *data = [NSData dataWithContentsOfURL: [NSURL URLWithString:placeURLString]];
         [self performSelectorOnMainThread:@selector(fetchedData:)
                                withObject:data waitUntilDone:YES];
     });
@@ -70,12 +76,15 @@
     }
 }
 
-- (void)fetchedData:(NSData *)responseData {    
+
+- (void)fetchedData:(NSData *)responseData {  
     
+    NSLog(@"data");
     NSError *error;
+    
     /* 
     Get the JSON object from Yahoo.
-    JSON is basically a data representation
+    JSON is basically a way of representing data. The data comes in either an array or a dictionary of objects. In this case a dictionary.
     */
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
     NSDictionary* resultset = [json objectForKey:@"ResultSet"];
@@ -92,15 +101,14 @@
     [self performSelectorOnMainThread:@selector(fetchedWeather:)
                            withObject:data 
                         waitUntilDone:YES];
-    
-    //Sends message to the Yahoo Weather class delegate to implement the method
-    [_weatherDelegate updateWeatherInfo]; 
 }
 
 - (void)fetchedWeather:(NSData *)responseData {
+    NSLog(@"weather");
     NSError *error;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
     weatherData = json;
+    [_weatherDelegate updateWeatherInfo];
 }
 
 @end
