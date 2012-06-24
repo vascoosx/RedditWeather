@@ -94,6 +94,7 @@
 - (void)fetchedWeather:(NSData *)responseData {
     NSError *error;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
+    weatherData = json;
 }
 
 @end

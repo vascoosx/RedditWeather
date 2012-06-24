@@ -65,10 +65,19 @@
 //Method that gets weather info once the delegate method is called in weather class
 - (void)updateWeatherInfo
 {
-    NSDictionary *temp = weather.weatherData;
-    conditions = [temp objectForKey:@"condition"];
-    textLabel.text = [NSString stringWithFormat:@"stuff"];
-    NSLog(@"update");
+    conditions = [[weather weatherData] objectForKey:@"condition"];
+    NSDictionary *location = [[weather weatherData] objectForKey:@"location"];
+    townLabel.text = [location objectForKey:@"city"];
+    textLabel.text = [conditions objectForKey:@"text"];
+    NSInteger temp = [[conditions objectForKey:@"temperature"]intValue];
+    //Checks the user setting to display either Fahrenheit or Celsius
+    if (temperatureSetting == 0) {
+        temp = (temp * 1.8) + 32;
+        temperatureLabel.text = [NSString stringWithFormat:@"%i°F", temp];
+    } else {
+        temperatureLabel.text = [NSString stringWithFormat: @"%iºC", temp];
+    }
+    imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@", [conditions objectForKey:@"code"]] ofType:@"png"]];    
 }
 
 @end
