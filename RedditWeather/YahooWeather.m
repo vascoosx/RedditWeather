@@ -24,6 +24,9 @@
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         NSLog(@"searched");
         placeURLString = locationSearchedFor;
+        placeURLString = [placeURLString stringByReplacingOccurrencesOfString:@", " withString:@"+"];
+        placeURLString = [placeURLString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+        NSLog(placeURLString);
         dispatch_async(kBgQueue, ^{
             NSData *data = [NSData dataWithContentsOfURL: [NSURL URLWithString:placeURLString]];
             [self performSelectorOnMainThread:@selector(fetchedData:)
