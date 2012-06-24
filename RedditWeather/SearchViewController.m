@@ -1,28 +1,36 @@
 //
-//  FirstViewController.m
+//  SearchViewController.m
 //  RedditWeather
 //
-//  Created by Mathieu Hendey on 22/06/2012.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Mathieu Hendey on 24/06/2012.
+//  Copyright (c) 2012 Mathieu Hendey. All rights reserved.
 //
-#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-#import "FirstViewController.h"
-#import "YahooWeather.h"
 
-@interface FirstViewController ()
+#import "SearchViewController.h"
+
+@interface SearchViewController ()
 
 @end
 
-@implementation FirstViewController
-@synthesize townLabel, conditions, temperatureSetting, textLabel, temperatureLabel, imageView, weather;
+@implementation SearchViewController
+@synthesize conditions, search, textLabel, townLabel, imageView, temperatureLabel, temperatureSetting, searchEntry, weather;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    //Sets background color for view controller
     UIColor* bgColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ipad-BG-pattern.png"]];
     [self.view setBackgroundColor:bgColor];
     weather = [[YahooWeather alloc] init];
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidUnload
@@ -33,12 +41,29 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    //iPhone set to only display in Portrait, iPad will autorotate
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation == UIInterfaceOrientationPortrait);
-    } else {
-        return YES;
-    }
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar 
+{
+    [searchBar setShowsCancelButton:YES animated:YES];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar 
+{
+    searchBar.text=@"";
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar resignFirstResponder];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    searchEntry = [NSString stringWithFormat:@"http://where.yahooapis.com/geocode?location="];
+    searchEntry = [searchEntry stringByAppendingString:searchBar.text];
+    searchEntry = [searchEntry stringByAppendingFormat:@"&flags=J"];
+    [searchBar resignFirstResponder];
+    self.weather.weatherDelegate = self;
+    [weather getWeather:YES :searchEntry];
 }
 
 - (void)getWeather:(id)sender 
@@ -47,7 +72,7 @@
     [weather getWeather:NO :nil];
 }
 
-//Implmentation of the delegated method from the Yahoo Weather Class
+
 - (void)updateWeatherInfo
 {
     NSLog(@"updated");

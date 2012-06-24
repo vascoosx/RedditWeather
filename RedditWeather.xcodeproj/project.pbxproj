@@ -18,6 +18,7 @@
 		4E3636091594FE12002B6BD8 /* tabbar-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E3636051594FE12002B6BD8 /* tabbar-active@2x.png */; };
 		4E36360A1594FE12002B6BD8 /* tabbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E3636061594FE12002B6BD8 /* tabbar.png */; };
 		4E36360B1594FE12002B6BD8 /* tabbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E3636071594FE12002B6BD8 /* tabbar@2x.png */; };
+		4E6C58A41597C6F2003CACD3 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6C58A31597C6F2003CACD3 /* SearchViewController.m */; };
 		4EA0AD571593FAD1005FF81F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA0AD561593FAD1005FF81F /* UIKit.framework */; };
 		4EA0AD591593FAD1005FF81F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA0AD581593FAD1005FF81F /* Foundation.framework */; };
 		4EA0AD5B1593FAD1005FF81F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA0AD5A1593FAD1005FF81F /* CoreGraphics.framework */; };
@@ -155,6 +156,8 @@
 		4E3636051594FE12002B6BD8 /* tabbar-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-active@2x.png"; sourceTree = "<group>"; };
 		4E3636061594FE12002B6BD8 /* tabbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar.png; sourceTree = "<group>"; };
 		4E3636071594FE12002B6BD8 /* tabbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar@2x.png"; sourceTree = "<group>"; };
+		4E6C58A21597C6F2003CACD3 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		4E6C58A31597C6F2003CACD3 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		4EA0AD521593FAD1005FF81F /* RedditWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EA0AD561593FAD1005FF81F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4EA0AD581593FAD1005FF81F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -333,6 +336,8 @@
 			children = (
 				4E11E9CB159671B5001F74B7 /* YahooWeather.h */,
 				4E11E9CC159671B5001F74B7 /* YahooWeather.m */,
+				4E6C58A21597C6F2003CACD3 /* SearchViewController.h */,
+				4E6C58A31597C6F2003CACD3 /* SearchViewController.m */,
 				4EA0AD651593FAD1005FF81F /* AppDelegate.h */,
 				4EA0AD661593FAD1005FF81F /* AppDelegate.m */,
 				4EA0AD681593FAD1005FF81F /* MainStoryboard_iPhone.storyboard */,
@@ -692,6 +697,7 @@
 				4EA0AD701593FAD1005FF81F /* FirstViewController.m in Sources */,
 				4EA0AD771593FAD1005FF81F /* SecondViewController.m in Sources */,
 				4E11E9CD159671B5001F74B7 /* YahooWeather.m in Sources */,
+				4E6C58A41597C6F2003CACD3 /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
