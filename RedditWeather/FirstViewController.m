@@ -14,24 +14,7 @@
 @end
 
 @implementation FirstViewController
-@synthesize search;
-@synthesize townLabel, conditions, temperatureSetting,searchEntry,textLabel, temperatureLabel, imageView, weather;
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    //Gets user setting choices for Fahrenheit or Celsius
-    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
-    temperatureSetting = [[preferences valueForKey:@"temperature setting"]intValue];
-    //Gets the current value of temperature from the JSON data
-    NSInteger temp = [[conditions objectForKey:@"temperature"]intValue];
-    //Checks the user setting to display either Fahrenheit or Celsius
-    if (temperatureSetting == 0) {
-        temp = (temp * 1.8) + 32;
-        temperatureLabel.text = [NSString stringWithFormat:@"%i°F", temp];
-    } else {
-        temperatureLabel.text = [NSString stringWithFormat: @"%iºC", temp];
-    }
-}
+@synthesize townLabel, conditions, temperatureSetting, searchEntry, textLabel, temperatureLabel, imageView, weather, search;
 
 - (void)viewDidLoad
 {
@@ -59,11 +42,13 @@
     }
 }
 
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar 
+{
     [searchBar setShowsCancelButton:YES animated:YES];
 }
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar 
+{
     searchBar.text=@"";
     [searchBar setShowsCancelButton:NO animated:YES];
     [searchBar resignFirstResponder];
@@ -79,11 +64,11 @@
     [weather getWeather:YES :searchEntry];
 }
 
-- (void)getWeather:(id)sender {
+- (void)getWeather:(id)sender 
+{
     self.weather.weatherDelegate = self;
     [weather getWeather:NO :nil];
 }
-
 
 //Implmentation of the delegated method from the Yahoo Weather Class
 - (void)updateWeatherInfo
@@ -94,6 +79,7 @@
     townLabel.text = [location objectForKey:@"city"];
     textLabel.text = [conditions objectForKey:@"text"];
     NSInteger temp = [[conditions objectForKey:@"temperature"]intValue];
+    temperatureSetting = [[[NSUserDefaults standardUserDefaults]objectForKey:@"temperature setting"]intValue];
     //Checks the user setting to display either Fahrenheit or Celsius
     if (temperatureSetting == 0) {
         temp = (temp * 1.8) + 32;

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FirstViewController.h"
 
 @interface SecondViewController : UIViewController
 
