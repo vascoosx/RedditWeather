@@ -72,7 +72,11 @@
 - (void)fetchedData:(NSData *)responseData {    
     
     NSError *error;
-    // Get the JSON object from Yahoo.
+    /* Get the JSON object from Yahoo.
+     
+       Json is basically a data represent
+     
+     */
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
     NSDictionary* resultset = [json objectForKey:@"ResultSet"];
     NSArray* results = [resultset objectForKey:@"Results"];
