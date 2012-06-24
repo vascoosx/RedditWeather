@@ -9,10 +9,18 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+@protocol WeatherInfo <NSObject>
+
+- (void)updateWeatherInfo;
+
+@end
+
 @interface YahooWeather : NSObject <CLLocationManagerDelegate> {
 	CLGeocoder *_geocoder;
     NSDictionary *weatherData;
 }
+
+@property (nonatomic,weak) id<WeatherInfo> weatherDelegate; //Weather class delegate
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *currentLocation; // The location data.

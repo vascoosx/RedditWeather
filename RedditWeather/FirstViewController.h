@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
-@class YahooWeather;
-@interface FirstViewController : UIViewController
+#import "YahooWeather.h" 
+
+@interface FirstViewController : UIViewController <WeatherInfo>
 
 {
     CLGeocoder *_geocoder; //Reverse geocoder, gives us information from coordinates.

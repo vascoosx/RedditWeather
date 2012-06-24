@@ -57,11 +57,18 @@
 }
 
 - (void)getWeather:(id)sender {
-    
     weather = [[YahooWeather alloc] init];
+    self.weather.weatherDelegate = self;
     [weather getWeather];
-    NSDictionary *temp = [weather weatherData];
-    conditions = [temp objectForKey:@"condition"];
-     
 }
+
+//Method that gets weather info once the delegate method is called in weather class
+- (void)updateWeatherInfo
+{
+    NSDictionary *temp = weather.weatherData;
+    conditions = [temp objectForKey:@"condition"];
+    textLabel.text = [NSString stringWithFormat:@"stuff"];
+    NSLog(@"update");
+}
+
 @end

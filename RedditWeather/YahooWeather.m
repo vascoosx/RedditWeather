@@ -9,6 +9,7 @@
 #import "YahooWeather.h"
 
 @implementation YahooWeather
+@synthesize weatherDelegate = _weatherDelegate;
 @synthesize locationManager, currentLocation, latitude, longitude, weatherData;
 
 - (void) getWeather {
@@ -23,7 +24,6 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
-    NSLog(@"asda");
     // Called when new location data, such as better accuracy for a location or if the device moves.
     [locationManager stopUpdatingLocation];
     self.currentLocation = newLocation;
@@ -87,6 +87,8 @@
     NSData *data = [NSData dataWithContentsOfURL: [NSURL URLWithString:urlString]];
     [self performSelectorOnMainThread:@selector(fetchedWeather:)
                            withObject:data waitUntilDone:YES];
+    NSLog(@"asda");
+    [_weatherDelegate updateWeatherInfo]; //Calls delegate method to update weather info
 }
 
 - (void)fetchedWeather:(NSData *)responseData {
