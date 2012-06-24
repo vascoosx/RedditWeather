@@ -14,7 +14,8 @@
 @end
 
 @implementation FirstViewController
-@synthesize   townLabel, conditions, temperatureSetting,textLabel, temperatureLabel, imageView, weather;
+@synthesize search;
+@synthesize townLabel, conditions, temperatureSetting,searchEntry,textLabel, temperatureLabel, imageView, weather;
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -38,10 +39,12 @@
     //Sets background color for view controller
     UIColor* bgColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ipad-BG-pattern.png"]];
     [self.view setBackgroundColor:bgColor];
+    weather = [[YahooWeather alloc] init];
 }
 
 - (void)viewDidUnload
 {
+    [self setSearch:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -56,13 +59,31 @@
     }
 }
 
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:YES animated:YES];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    searchBar.text=@"";
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar resignFirstResponder];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    searchEntry = [NSString stringWithFormat:@"http://where.yahooapis.com/geocode?location="];
+    searchEntry = [searchEntry stringByAppendingString:searchBar.text];
+    searchEntry = [searchEntry stringByAppendingFormat:@"&flags=J"];
+    [searchBar resignFirstResponder];
+    NSLog(@"%@",searchEntry);
+}
+
 - (void)getWeather:(id)sender {
-    weather = [[YahooWeather alloc] init];
     self.weather.weatherDelegate = self;
     [weather getWeather];
 }
 
-//Method that gets weather info once the delegate method is called in weather class
+//Implmentation of the delegated method from the Yahoo Weather Class
 - (void)updateWeatherInfo
 {
     conditions = [[weather weatherData] objectForKey:@"condition"];

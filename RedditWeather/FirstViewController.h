@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "YahooWeather.h" 
 
-@interface FirstViewController : UIViewController <WeatherInfo>
+@interface FirstViewController : UIViewController <WeatherInfo,UISearchBarDelegate>
 
 {
     CLGeocoder *_geocoder; //Reverse geocoder, gives us information from coordinates.
@@ -24,10 +24,12 @@
 @property (nonatomic,retain) YahooWeather *weather;
 @property (nonatomic) NSDictionary *conditions; 
 @property (nonatomic) NSInteger temperatureSetting;
+@property (nonatomic) NSString *searchEntry;
 @property (weak, nonatomic) IBOutlet UILabel *townLabel;
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UISearchBar *search;
 
 - (IBAction)getWeather:(id)sender; //Method we want to be called when get weather button is tapped.
 

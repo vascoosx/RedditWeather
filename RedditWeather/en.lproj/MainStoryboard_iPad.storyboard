@@ -65,7 +65,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Uyo-XG-xNU">
-                                <rect key="frame" x="240" y="727" width="284" height="48"/>
+                                <rect key="frame" x="240" y="664" width="284" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Get Weather" backgroundImage="button.png">
@@ -93,12 +93,29 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="10" id="dEr-Mp-16w">
+                                <rect key="frame" x="240" y="774" width="284" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Press Get Weather now to get current location info or entery city in the search bar above and then press Get Weather for that city's info</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <searchBar contentMode="redraw" barStyle="blackOpaque" id="4ji-HD-ulO">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Mnr-Hh-bG5" id="mYf-KE-AkH"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" image="25-weather.png" id="5c2-mi-RXV"/>
                     <connections>
                         <outlet property="imageView" destination="6XQ-gb-oBL" id="xpv-lK-INK"/>
+                        <outlet property="search" destination="4ji-HD-ulO" id="HjM-If-he9"/>
                         <outlet property="temperatureLabel" destination="42m-8k-7FT" id="RSr-7Q-5X5"/>
                         <outlet property="textLabel" destination="vF8-QB-cRs" id="lfq-Pn-hgI"/>
                         <outlet property="townLabel" destination="dTC-eG-I9t" id="Ve5-eJ-tWo"/>
@@ -138,6 +155,7 @@
             <relationships>
                 <relationship kind="action" name="getWeather:"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="search" candidateClass="UISearchBar"/>
                 <relationship kind="outlet" name="temperatureLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="textLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="townLabel" candidateClass="UILabel"/>
