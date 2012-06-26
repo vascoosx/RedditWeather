@@ -42,7 +42,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="639" y="1417"/>
+            <point key="canvasLocation" x="611" y="1377"/>
         </scene>
         <!--First View Controller - Item 1-->
         <scene sceneID="8pj-sA-nSX">
@@ -112,7 +112,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="619" y="-1016"/>
+            <point key="canvasLocation" x="611" y="-976"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="QQK-nt-hJ9">
@@ -132,7 +132,7 @@
                     </connections>
                 </tabBarController>
             </objects>
-            <point key="canvasLocation" x="-349" y="-145"/>
+            <point key="canvasLocation" x="-373" y="193"/>
         </scene>
         <!--Search View Controller - Item-->
         <scene sceneID="2Sb-Dc-Rqq">
@@ -168,7 +168,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <searchBar contentMode="redraw" id="E6X-ON-gfT">
+                            <searchBar contentMode="redraw" barStyle="blackOpaque" id="E6X-ON-gfT">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -189,7 +189,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="619" y="193"/>
+            <point key="canvasLocation" x="611" y="193"/>
         </scene>
     </scenes>
     <resources>

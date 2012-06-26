@@ -37,6 +37,7 @@ below when they are told to by the Yahoo Weather class
 @property (nonatomic) float latitude;
 @property (strong, nonatomic) NSDictionary *weatherData;
 @property (strong, nonatomic) NSString *placeURLString;
+@property (nonatomic) NSInteger placeCheck;
 
 - (void) getWeather: (BOOL) searchedForLocation: (NSString *) locationSearchedFor;
 

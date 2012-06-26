@@ -106,7 +106,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="653" y="744"/>
+            <point key="canvasLocation" x="653" y="772"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
@@ -126,7 +126,7 @@
                     </connections>
                 </tabBarController>
             </objects>
-            <point key="canvasLocation" x="118" y="180"/>
+            <point key="canvasLocation" x="110" y="180"/>
         </scene>
         <!--Search View Controller - Item-->
         <scene sceneID="KQu-dM-5tg">

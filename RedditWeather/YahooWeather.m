@@ -11,7 +11,7 @@
 @implementation YahooWeather
 
 @synthesize weatherDelegate = _weatherDelegate;
-@synthesize locationManager, currentLocation, latitude, longitude, weatherData, placeURLString;
+@synthesize locationManager, currentLocation, latitude, longitude, weatherData, placeURLString, placeCheck;
 
 /* Begin searching for wather data. If they searched, searchedForLocation is YES so we don't need to get their current location.
    If they pressed the Get Weather button, searchedForLocation is NO so we do need to get their current location. */
@@ -90,19 +90,34 @@
     */
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
     NSDictionary* resultset = [json objectForKey:@"ResultSet"];
-    NSArray* results = [resultset objectForKey:@"Results"];
-    NSDictionary* rawPlaceData = [results objectAtIndex:0];
     
-    // When we've got the data, remove the UIActivityIndicator from the status bar.
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    
-    // URL for dataWithContentsOfURL.
-    NSString * urlString = [NSString stringWithFormat: @"http://weather.yahooapis.com/forecastjson?u=c&w=%@", [rawPlaceData objectForKey:@"woeid"]];
-    
-    NSData *data = [NSData dataWithContentsOfURL: [NSURL URLWithString:urlString]];
-    [self performSelectorOnMainThread:@selector(fetchedWeather:)
-                           withObject:data 
-                        waitUntilDone:YES];
+    //Checks to make sure only one location is found before proceeding 
+    placeCheck = [[resultset objectForKey:@"Found"]intValue];
+    if (placeCheck != 1) {
+        
+        //Stops activity indicator
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error retrieving location"
+                                                        message:@"Unable to find the location you entered"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    } else {
+        NSArray* results = [resultset objectForKey:@"Results"];
+        NSDictionary* rawPlaceData = [results objectAtIndex:0];
+        
+        // When we've got the data, remove the UIActivityIndicator from the status bar.
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        
+        // URL for dataWithContentsOfURL.
+        NSString * urlString = [NSString stringWithFormat: @"http://weather.yahooapis.com/forecastjson?u=c&w=%@", [rawPlaceData objectForKey:@"woeid"]];
+        
+        NSData *data = [NSData dataWithContentsOfURL: [NSURL URLWithString:urlString]];
+        [self performSelectorOnMainThread:@selector(fetchedWeather:)
+                               withObject:data 
+                            waitUntilDone:YES];
+    }
 }
 
 - (void)fetchedWeather:(NSData *)responseData {
@@ -110,7 +125,19 @@
     NSError *error;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
     weatherData = json;
-    [_weatherDelegate updateWeatherInfo];
+    
+    //Checks for error code 500 which means no weather data available via the Yahoo Weather API
+    placeCheck = [[weatherData objectForKey:@"code"]intValue];
+    if (placeCheck == 500) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Please enter your City and State or Zip Code"
+                                                        message:@"Must be more specific"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    } else {
+        [_weatherDelegate updateWeatherInfo];
+    }
 }
 
 @end
