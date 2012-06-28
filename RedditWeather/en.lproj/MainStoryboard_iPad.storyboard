@@ -65,7 +65,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Uyo-XG-xNU">
-                                <rect key="frame" x="242" y="672" width="284" height="48"/>
+                                <rect key="frame" x="242" y="723" width="284" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Get Weather" backgroundImage="button.png">
@@ -89,13 +89,6 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Temperature" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="42m-8k-7FT">
                                 <rect key="frame" x="253" y="241" width="259" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Press Get Weather now to get weather for your current location or enter a city in the search bar above" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" id="dEr-Mp-16w">
-                                <rect key="frame" x="242" y="762" width="284" height="81"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -176,11 +169,21 @@
                                     <outlet property="delegate" destination="Hh6-E3-DtV" id="w2E-Y9-XiR"/>
                                 </connections>
                             </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="tfF-h3-5Pn">
+                                <rect key="frame" x="0.0" y="652" width="768" height="303"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Hh6-E3-DtV" id="yVh-wZ-0W2"/>
+                                    <outlet property="delegate" destination="Hh6-E3-DtV" id="qU0-dl-vuh"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="cWn-w0-3or"/>
                     <connections>
+                        <outlet property="forcastView" destination="tfF-h3-5Pn" id="ewr-O2-BeZ"/>
                         <outlet property="imageView" destination="AsQ-P9-hkC" id="LGY-1M-4p3"/>
                         <outlet property="search" destination="E6X-ON-gfT" id="GYS-sz-Qpz"/>
                         <outlet property="temperatureLabel" destination="9om-Zd-fY2" id="FYb-Y0-hhf"/>
@@ -211,6 +214,7 @@
         <class className="SearchViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="forcastView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="search" candidateClass="UISearchBar"/>
                 <relationship kind="outlet" name="temperatureLabel" candidateClass="UILabel"/>

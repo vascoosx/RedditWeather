@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "YahooWeather.h"
-@interface SearchViewController : UIViewController <UISearchBarDelegate, WeatherInfo> {
+@interface SearchViewController : UIViewController <UISearchBarDelegate, WeatherInfo, UITableViewDataSource, UITableViewDelegate> {
     __weak UILabel *_townLabel;
     __weak UILabel *_textLabel;
     __weak UILabel *_temperatureLabel;
@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UISearchBar *search;
+@property (weak, nonatomic) IBOutlet UITableView *forcastView;
 
 - (void)updateWeatherInfo;
 

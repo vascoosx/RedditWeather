@@ -9,11 +9,16 @@
 #import "SearchViewController.h"
 
 @interface SearchViewController ()
+{
+    NSString *todayForecast;
+    NSString *tomorrowForecast;
+    UITableViewCell *cell;
+}
 
 @end
 
 @implementation SearchViewController
-@synthesize conditions, search, textLabel, townLabel, imageView, temperatureLabel, temperatureSetting, searchEntry, weather;
+@synthesize conditions, search, textLabel, townLabel, imageView, temperatureLabel, temperatureSetting, searchEntry, weather, forcastView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +40,7 @@
 
 - (void)viewDidUnload
 {
+    [self setForcastView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -89,7 +95,33 @@
     } else {
         temperatureLabel.text = [NSString stringWithFormat: @"%iºC", temp];
     }
-    imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@", [conditions objectForKey:@"code"]] ofType:@"png"]];    
+    imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@", [conditions objectForKey:@"code"]] ofType:@"png"]];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+// Customize the number of rows in the table view.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	return 7;
+}
+
+// Customize the appearance of table view cells.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *CellIdentifier = @"Cell";
+    
+    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    // Set up the cell...
+    cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:15];
+    cell.textLabel.text = [NSString	 stringWithFormat:@"Cell Row #%d", [indexPath row]];
+    
+    return cell;
 }
 
 @end
