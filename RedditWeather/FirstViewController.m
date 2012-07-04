@@ -23,6 +23,20 @@
     UIColor* bgColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ipad-BG-pattern.png"]];
     [self.view setBackgroundColor:bgColor];
     weather = [[YahooWeather alloc] init];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"city"]) {
+        townLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"city"];
+        textLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"text"];
+        temperatureSetting = [[[NSUserDefaults standardUserDefaults]objectForKey:@"temperature setting"]intValue];
+        NSInteger temp = [[NSUserDefaults standardUserDefaults] integerForKey:@"temperature"];
+        if (temperatureSetting == 0) {
+            temp = (temp * 1.8) + 32;
+            temperatureLabel.text = [NSString stringWithFormat:@"%i°F", temp];
+        } else {
+            temperatureLabel.text = [NSString stringWithFormat: @"%iºC", temp];
+        }
+        imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@", [[NSUserDefaults standardUserDefaults] objectForKey:@"code"]] ofType:@"png"]];
+    }
+
 }
 
 - (void)viewDidUnload
@@ -56,6 +70,12 @@
     townLabel.text = [location objectForKey:@"city"];
     textLabel.text = [conditions objectForKey:@"text"];
     NSInteger temp = [[conditions objectForKey:@"temperature"]intValue];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[location objectForKey:@"city"] forKey: @"city"];
+    [[NSUserDefaults standardUserDefaults] setObject:[conditions objectForKey:@"text"] forKey: @"text"];
+    [[NSUserDefaults standardUserDefaults] setInteger: temp forKey: @"temperature"];
+    [[NSUserDefaults standardUserDefaults] setObject:[conditions objectForKey:@"code"] forKey: @"code"];
+    
     temperatureSetting = [[[NSUserDefaults standardUserDefaults]objectForKey:@"temperature setting"]intValue];
     //Checks the user setting to display either Fahrenheit or Celsius
     if (temperatureSetting == 0) {
